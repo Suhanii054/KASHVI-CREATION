@@ -10,4 +10,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    port: 5174, // Change if needed
+    proxy: {
+      "/api": {
+        target: "http://localhost:5001", // Updated backend port
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });
